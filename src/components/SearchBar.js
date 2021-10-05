@@ -6,15 +6,21 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
+  Pressable,
 } from 'react-native';
 import Colors from '../res/colors';
 
-export default function SearchBar({value, updateSearch, style}) {
+export default function SearchBar({
+  updateSearch,
+  style,
+  onPress,
+  focus = false,
+}) {
   const [query, setQuery] = useState();
   const [error, setError] = useState();
 
   return (
-    <View style={[styles.container, style]}>
+    <Pressable style={[styles.container, style]} onPress={onPress}>
       <View style={styles.searchContainer}>
         <View style={styles.vwSearch}>
           <Image
@@ -25,6 +31,8 @@ export default function SearchBar({value, updateSearch, style}) {
 
         <TextInput
           value={query}
+          editable={onPress ? false : true}
+          autoFocus={focus}
           placeholder="Search"
           style={styles.textInput}
           onChangeText={text => {
@@ -49,7 +57,7 @@ export default function SearchBar({value, updateSearch, style}) {
         )}
       </View>
       {error && <Text style={styles.txtError}>{error}</Text>}
-    </View>
+    </Pressable>
   );
 }
 

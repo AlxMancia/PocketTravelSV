@@ -1,6 +1,7 @@
 const colors = {
   primaryRed: '#d82108',
   gray: '#5b5d5f',
+  lightGray: '#cecece',
   zircon: '#3a4049',
   picton: '#3c6fc8',
   carmine: '#ef6372',

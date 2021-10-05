@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen';
 import CategoryScreen from '../screens/CategoryScreen';
+import SearchScreen from '../screens/SearchScreen';
 import Colors from '../res/colors';
 
 const Stack = createStackNavigator();
@@ -22,6 +23,7 @@ const HomeStack = () => {
       <Stack.Screen name="Home" component={HomeScreen} />
 
       <Stack.Screen name="Category" component={CategoryScreen} />
+      <Stack.Screen name="Search" component={SearchScreen} />
     </Stack.Navigator>
   );
 };

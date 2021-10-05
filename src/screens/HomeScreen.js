@@ -7,34 +7,25 @@ import CategoryItem from '../components/CategoryItem';
 import SearchBar from '../components/SearchBar';
 import Colors from '../res/colors';
 
+import businessCategories from '../data/business-categories.json';
+
 import {Icon} from 'react-native-elements';
 
 export default function HomeScreen({navigation}) {
   const [value, setValue] = useState();
-  const [categories, setCategories] = useState([
-    {
-      name: 'Restaurantes',
-      categoryIcon: 'restaurant-outline',
-      library: 'ionicon',
-    },
-    {name: 'Spa', categoryIcon: 'spa', library: 'font-awesome-5'},
-    {name: 'Playas', categoryIcon: 'umbrella-beach', library: 'font-awesome-5'},
-    {name: 'Hoteles', categoryIcon: 'bed-outline', library: 'ionicon'},
-    {name: 'Bar', categoryIcon: 'glass-martini', library: 'font-awesome-5'},
-    {
-      name: 'Más',
-      categoryIcon: 'ellipsis-horizontal-circle-outline',
-      library: 'ionicon',
-    },
-    'Más',
-  ]);
-  const updateSearch = value => {
+  const [categories, setCategories] = useState(businessCategories);
+  const updateSearch = val => {
     //do your search logic or anything
-    console.log(value);
+    console.log(val);
   };
 
-  const handlePress = item => {
-    console.log('Se presiono', item);
+  const handleSearchBarPress = () => {
+    console.log('Searchbar pressed');
+    navigation.navigate('Search');
+  };
+
+  const handleCatItemPress = () => {
+    console.log('se presionó');
   };
 
   return (
@@ -48,13 +39,14 @@ export default function HomeScreen({navigation}) {
         value={value}
         updateSearch={updateSearch}
         style={styles.searchBar}
+        onPress={handleSearchBarPress}
       />
       <FlatList
         style={styles.categoriesList}
         numColumns={3}
         data={categories}
         renderItem={({item}) => (
-          <CategoryItem item={item} onPress={handlePress} />
+          <CategoryItem item={item} onPress={handleCatItemPress} />
         )}
       />
     </SafeAreaView>

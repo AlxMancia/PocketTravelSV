@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Restaurantes",
+        "categoryIcon": "restaurant-outline",
+        "library": "ionicon"
+    },
+    {
+        "name": "Spa",
+        "categoryIcon": "spa",
+        "library": "font-awesome-5"
+    },
+    {
+        "name": "Playas",
+        "categoryIcon": "umbrella-beach",
+        "library": "font-awesome-5"
+    },
+    {
+        "name": "Hoteles",
+        "categoryIcon": "bed-outline",
+        "library": "ionicon"
+    },
+    {
+        "name": "Bar",
+        "categoryIcon": "glass-martini",
+        "library": "font-awesome-5"
+    },
+    {
+        "name": "Más",
+        "categoryIcon": "ellipsis-horizontal-circle-outline",
+        "library": "ionicon"
+    }
+]
