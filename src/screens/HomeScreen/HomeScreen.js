@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import {Image, Text, StyleSheet, FlatList, View} from 'react-native';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
-import CategoryItem from '../components/CategoryItem';
+import CategoryItem from './CategoryItem';
 
-import SearchBar from '../components/SearchBar';
-import Colors from '../res/colors';
+import SearchBar from '../../components/SearchBar';
+import Colors from '../../res/colors';
 
-import businessCategories from '../data/business-categories.json';
+import businessCategories from '../../data/business-categories.json';
 
 import {Icon} from 'react-native-elements';
 
@@ -32,7 +32,7 @@ export default function HomeScreen({navigation}) {
     <SafeAreaView>
       <Image
         style={styles.imgCover}
-        source={require('../assets/images/cover-image.jpg')}
+        source={require('../../assets/images/cover-image.jpg')}
       />
       <Text style={styles.txtCover}>Decide tu destino</Text>
       <SearchBar

@@ -8,9 +8,9 @@ import {
   TouchableOpacity,
 } from 'react-native-gesture-handler';
 
-import Colors from '../res/colors';
+import Colors from '../../res/colors';
 
-const CategoryItemSearch = ({item}) => {
+const CategoryItem = ({item}) => {
   const {name, categoryIcon, library} = item;
 
   return (
@@ -47,4 +47,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default CategoryItemSearch;
+export default CategoryItem;

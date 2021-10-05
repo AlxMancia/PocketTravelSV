@@ -1,11 +1,11 @@
 import React, {useState} from 'react';
 import {FlatList, StyleSheet} from 'react-native';
 
-import SearchBar from '../components/SearchBar';
-import LocationBar from '../components/LocationBar';
-import CategoryItemSearch from '../components/CategoryItemSearch';
+import SearchBar from '../../components/SearchBar';
+import LocationBar from '../../components/LocationBar';
+import CategoryItem from './CategoryItem';
 
-import businessCategories from '../data/business-categories.json';
+import businessCategories from '../../data/business-categories.json';
 
 export default function SearchScreen() {
   const [value, setValue] = useState();
@@ -34,7 +34,7 @@ export default function SearchScreen() {
         style={styles.categoriesList}
         data={categories}
         renderItem={({item}) => (
-          <CategoryItemSearch item={item} onPress={handlePress} />
+          <CategoryItem item={item} onPress={handlePress} />
         )}
       />
     </>
