@@ -5,6 +5,8 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 
 import HomeStack from './src/navigation/HomeStack';
 import ProfileStack from './src/navigation/ProfileStack';
+import RecomendationStack from './src/navigation/RecomendationStack';
+
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -34,7 +36,17 @@ const App = () => {
               headerShown: false,
             }}
           />
-
+        
+          <Tab.Screen
+            name="Recomendaciones"
+            component={RecomendationStack}
+            options={{
+              tabBarIcon: ({size, color}) => (
+                <Icon name="star" type="font-awesome" color={color} />
+              ),
+              headerShown: false,
+            }}
+          />
           <Tab.Screen
             name="Perfil"
             component={ProfileStack}
