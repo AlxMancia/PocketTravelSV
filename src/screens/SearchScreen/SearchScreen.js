@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {FlatList, StyleSheet} from 'react-native';
+import {FlatList, StyleSheet, Text} from 'react-native';
 
 import SearchBar from '../../components/SearchBar';
 import LocationBar from '../../components/LocationBar';
@@ -7,7 +7,7 @@ import CategoryItem from './CategoryItem';
 
 import businessCategories from '../../data/business-categories.json';
 
-export default function SearchScreen() {
+export default function SearchScreen({navigation}) {
   const [value, setValue] = useState();
 
   const categories = businessCategories.filter(cat => cat.name !== 'Más');
