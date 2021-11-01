@@ -5,7 +5,7 @@ import {Text, StyleSheet, View} from 'react-native';
 import {Icon} from 'react-native-elements';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-import Colors from '../../res/colors';
+import Colors from '../res/colors';
 
 const CategoryItem = ({item}) => {
   const {name, categoryIcon, library} = item;
