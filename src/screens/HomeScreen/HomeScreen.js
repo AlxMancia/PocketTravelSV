@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {Image, Text, StyleSheet, FlatList, View} from 'react-native';
 
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -13,7 +13,15 @@ import {Icon} from 'react-native-elements';
 
 export default function HomeScreen({navigation}) {
   const [value, setValue] = useState();
-  const [categories, setCategories] = useState(businessCategories);
+
+  /*businessCategories.push({
+    name: 'Más',
+    categoryIcon: 'ellipsis-horizontal-circle-outline',
+    library: 'ionicon',
+  });*/
+
+  const [categories, setCategories] = useState(businessCategories.slice(0, 5));
+
   const updateSearch = val => {
     //do your search logic or anything
     console.log(val);
@@ -27,6 +35,20 @@ export default function HomeScreen({navigation}) {
   const handleCatItemPress = () => {
     console.log('se presionó');
   };
+
+  useEffect(() => {
+    if (categories.find(cat => cat.id === 0) === undefined) {
+      setCategories([
+        ...categories,
+        {
+          id: 0,
+          name: 'Más',
+          categoryIcon: 'ellipsis-horizontal-circle-outline',
+          library: 'ionicon',
+        },
+      ]);
+    }
+  }, [categories]);
 
   return (
     <SafeAreaView>
@@ -46,7 +68,7 @@ export default function HomeScreen({navigation}) {
         numColumns={3}
         data={categories}
         renderItem={({item}) => (
-          <CategoryItem item={item} onPress={handleCatItemPress} />
+          <CategoryItem item={item} navigation={navigation} />
         )}
       />
     </SafeAreaView>

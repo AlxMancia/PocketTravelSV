@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import SearchScreen from '../screens/SearchScreen/SearchScreen';
+import CategoriesScreen from '../screens/CategoriesScreen/CategoriesScreen';
 import Colors from '../res/colors';
 
 const Stack = createStackNavigator();
@@ -17,10 +18,18 @@ const HomeStack = () => {
           shadowColor: Colors.primaryRed,
         },
         headerTintColor: Colors.white,
-        headerShown: false,
       }}>
-      <Stack.Screen name="Home" component={HomeScreen} />
+      <Stack.Screen
+        name="Home"
+        component={HomeScreen}
+        options={{headerShown: false}}
+      />
       <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen
+        name="Categories"
+        component={CategoriesScreen}
+        screenOptions={{headerShown: true}}
+      />
     </Stack.Navigator>
   );
 };

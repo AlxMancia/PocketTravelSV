@@ -3,10 +3,7 @@ import React from 'react';
 import {Text, StyleSheet, View} from 'react-native';
 
 import {Icon} from 'react-native-elements';
-import {
-  TouchableHighlight,
-  TouchableOpacity,
-} from 'react-native-gesture-handler';
+import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import Colors from '../../res/colors';
 

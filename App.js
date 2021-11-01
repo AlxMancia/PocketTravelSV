@@ -7,7 +7,6 @@ import HomeStack from './src/navigation/HomeStack';
 import ProfileStack from './src/navigation/ProfileStack';
 import RecomendationStack from './src/navigation/RecomendationStack';
 
-
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 import Colors from './src/res/colors';
@@ -36,7 +35,7 @@ const App = () => {
               headerShown: false,
             }}
           />
-        
+
           <Tab.Screen
             name="Recomendaciones"
             component={RecomendationStack}

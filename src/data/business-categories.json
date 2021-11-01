@@ -1,32 +1,63 @@
 [
     {
+        "id": 1,
         "name": "Restaurantes",
         "categoryIcon": "restaurant-outline",
         "library": "ionicon"
     },
     {
+        "id": 2,
         "name": "Spa",
         "categoryIcon": "spa",
         "library": "font-awesome-5"
     },
     {
+        "id": 3,
         "name": "Playas",
         "categoryIcon": "umbrella-beach",
         "library": "font-awesome-5"
     },
     {
+        "id": 4,
         "name": "Hoteles",
         "categoryIcon": "bed-outline",
         "library": "ionicon"
     },
     {
+        "id": 5,
         "name": "Bar",
         "categoryIcon": "glass-martini",
         "library": "font-awesome-5"
     },
     {
-        "name": "Más",
-        "categoryIcon": "ellipsis-horizontal-circle-outline",
-        "library": "ionicon"
-    }
+        "id": 6,
+        "name": "Discoteca",
+        "categoryIcon": "nightlife",
+        "library": "MaterialIcons"
+    },
+    {
+        "id": 7,
+        "name": "Gasolinera",
+        "categoryIcon": "local-gas-station",
+        "library": "MaterialIcons"
+    },
+    {
+        "id": 8,
+        "name": "Centro Comercial",
+        "categoryIcon": "shopping-bag",
+        "library": "MaterialIcons"
+    },
+    {
+        "id": 9,
+        "name": "A domicilio",
+        "categoryIcon": "delivery-dining",
+        "library": "MaterialIcons"
+    },
+    {
+        "id": 10,
+        "name": "Farmacias",
+        "categoryIcon": "medical-services",
+        "library": "MaterialIcons"
+    },
+    
 ]

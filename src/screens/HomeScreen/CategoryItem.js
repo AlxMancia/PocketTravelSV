@@ -1,16 +1,20 @@
 import React from 'react';
 
-import {Text, StyleSheet, View} from 'react-native';
+import {Text, StyleSheet, View, TouchableOpacity} from 'react-native';
 
 import {Icon} from 'react-native-elements';
 
 import Colors from '../../res/colors';
 
-const CategoryItem = ({item}) => {
-  const {name, categoryIcon, library} = item;
+const CategoryItem = ({item, navigation}) => {
+  const {id, name, categoryIcon, library} = item;
+
+  const handlePress = () => {
+    if (id === 0) navigation.navigate('Categories');
+  };
 
   return (
-    <View style={styles.categoryIcon}>
+    <TouchableOpacity style={styles.categoryIcon} onPress={handlePress}>
       <Icon
         name={categoryIcon}
         type={library}
@@ -18,7 +22,7 @@ const CategoryItem = ({item}) => {
         color={Colors.primaryRed}
       />
       <Text style={styles.categoryTxt}>{name}</Text>
-    </View>
+    </TouchableOpacity>
   );
 };
 
