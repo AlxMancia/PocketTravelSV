@@ -9,22 +9,11 @@ export const useLocation = () => {
     const [userLocation, setUserLocation] = useState({latitude:"",longitude:""});
 
     const watchID = useRef();
-    const isRunning = useRef(true);
-
-    useEffect(()=>{
-        isRunning.current = true;
-        return () => {
-            isRunning.current = false;
-        }
-    },[])
+    
 
     useEffect(() => {
         getCurrentLocation()
         .then(location => {
-            // console.log(location);
-
-            if(!isRunning.current) return;
-
             setInitialPosition({
                 latitude : location.latitude,
                 longitude : location.longitude
@@ -34,20 +23,21 @@ export const useLocation = () => {
                 longitude : location.longitude
             });
             setHasLocation(true);
-        })
+        }),(err)=>console.log({err}), {enableHighAccuracy: true}
     }, [])
 
     const getCurrentLocation = () =>{
         return new Promise((resolve, reject) => {
             Geolocation.getCurrentPosition(
                 (info) => {
+                    // console.log(info.coords)
                     resolve({
                         latitude : info.coords.latitude,
                         longitude : info.coords.longitude
                     });
     
                 },
-                (err)=>reject({err}), {enableHighAccuracy: true}
+                (reject)=>console.log({reject}), {enableHighAccuracy: true}
             );
         });
     }
@@ -55,7 +45,6 @@ export const useLocation = () => {
     const followUserLocation = () =>{
         watchID.current = Geolocation.watchPosition(
             (info) => {
-                if(!isRunning.current) return;
 
                 console.log(info.coords)
                 setUserLocation({
@@ -63,7 +52,7 @@ export const useLocation = () => {
                     longitude : info.coords.longitude
                 })
             },
-            (err)=>console.log({err}), {timeout:3000 ,enableHighAccuracy: true, distanceFilter:10 }
+            (err)=>console.log({err}), { enableHighAccuracy: true, distanceFilter:10 }
         );
     }
 

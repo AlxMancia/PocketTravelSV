@@ -3,6 +3,9 @@ import MapView, {Marker} from 'react-native-maps';
 import { useLocation } from '../hook/useLocation';
 import { LoadingScreen } from '../screens/LoadingScreen';
 import { FabResetButton } from './FabResetButton';
+import Geolocation from '@react-native-community/geolocation';
+import { View } from 'react-native';
+import { Button } from 'react-native-elements';
 
 export const Map = () => {
 
@@ -15,7 +18,6 @@ export const Map = () => {
 
     const mapViewRef = useRef();
     const following = useRef(true);
-
 
     // useEffect(() => {
     //     followUserLocation();
@@ -36,7 +38,6 @@ export const Map = () => {
        })
     }, [userLocation])
 
-
     const centerPosition = async () =>{
         const location = await getCurrentLocation();
         following.current = true;
@@ -50,9 +51,16 @@ export const Map = () => {
 
     if(!hasLocation) return <LoadingScreen/>;
 
-    // console.log(initialPosition);
     return (
         <>
+            <Button
+                title='Prueba Location'
+                onPress={()=>Geolocation.getCurrentPosition(
+                    info => console.log(info.coords),
+                    (err)=>console.log(err),
+                    {enableHighAccuracy:true}
+                    )}
+            />
             <MapView
                 ref={ (el)=> mapViewRef.current = el }
                 style={{flex:1}}
