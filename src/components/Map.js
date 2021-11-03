@@ -71,8 +71,8 @@ export const Map = () => {
         style={{flex: 1}}
         showsUserLocation={true}
         initialRegion={{
-          latitude: parseInt(initialPosition.latitude),
-          longitude: parseInt(initialPosition.longitude),
+          latitude: initialPosition.latitude,
+          longitude: initialPosition.longitude,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
