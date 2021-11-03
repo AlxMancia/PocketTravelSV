@@ -51,6 +51,8 @@ export const Map = () => {
   };
 
   if (!hasLocation) return <LoadingScreen />;
+  // console.log(initialPosition.latitude)
+  // console.log(initialPosition.longitude)
 
   return (
     <>
@@ -60,7 +62,7 @@ export const Map = () => {
           Geolocation.getCurrentPosition(
             info => console.log(info.coords),
             err => console.log(err),
-            {enableHighAccuracy: true},
+            {timeout:10000,enableHighAccuracy: true},
           )
         }
       />
@@ -69,8 +71,8 @@ export const Map = () => {
         style={{flex: 1}}
         showsUserLocation={true}
         initialRegion={{
-          latitude: initialPosition.latitude,
-          longitude: initialPosition.longitude,
+          latitude: parseInt(initialPosition.latitude),
+          longitude: parseInt(initialPosition.longitude),
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}
