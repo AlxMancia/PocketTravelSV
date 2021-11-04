@@ -1,23 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { ScrollView } from 'react-native-gesture-handler';
+import { FlatList, ScrollView } from 'react-native-gesture-handler';
 import SiteItemList from '../components/SiteListItem';
+import businessProfiles from '../data/business-profiles.json'
 
+export default function App({navigation}) {
 
-export default function App() {
+  const [business, setBusiness] = useState(businessProfiles.slice(0, 9));
+
   return (
-    <ScrollView style={styles.container}>
-      {/* Recomendaciones */}
-      <View style ={styles.sitiosWrapper}>
-        <View styles={styles.items}>  
-          {/* Sitios */}
-          <SiteItemList text={'sitio1'} />
-          <SiteItemList text={'sitio2'} />
-          <SiteItemList text={'sitio3'} />
-        </View>
-      </View>
+    // <ScrollView style={styles.container}>
+    //   {/* Recomendaciones */}
+    //   <View style ={styles.sitiosWrapper}>
+    //     <View styles={styles.items}>  
+    //       {/* Sitios */}
+    //       <SiteItemList text={'sitio1'} />
+    //       <SiteItemList text={'sitio2'} />
+    //       <SiteItemList text={'sitio3'} />
+    //     </View>
+    //   </View>
       
-    </ScrollView>
+    // </ScrollView>
+    <FlatList
+        numColumns={3}
+        data={business}
+        horizontal={false}
+        renderItem={({item}) => (
+          <SiteItemList item={item} navigation={navigation} text={'sitio3'} />
+        )}
+      />
+
+
   );
 }
 
