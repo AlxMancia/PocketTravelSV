@@ -7,17 +7,17 @@
         "phone":78943123,
         "email":"alexis@gmail.com",
         "website":"https://alexisCompany.com",
-        "description":"Discoteca petFriendly"
+        "description":"Una discoteca fuera de lo común, en donde podrás ser tu mismo sin ningún tipo de ataduras, diviertete sin fin, visitanos y vive una experiencia sin igual"
     },
     {
         "id": 2,
         "businessName": "Pertuz to Go",
         "address": "La libertad",
-        "category": "A domicilio",
+        "category": "Restaurantes",
         "phone":73210089,
         "email":"apertuz@gmail.com",
         "website":"https://PertuztoGo.com",
-        "description":"Los mejores pedidos en to Go"
+        "description":"Esto es más que comida a domicilio, es toda una experiencia, podrás ser parte del proceso desde el momento de preparación de la comida hasta el momento que llegue a tu patio... Si leiste bien, a tu patio, con nuestro servicio nada intrusivo de entregas con drones"
     },
     {
         "id": 3,
@@ -27,7 +27,7 @@
         "phone":22007893,
         "email":"beachJ@gmail.com",
         "website":"https://beachJorgeSonso.com",
-        "description":"La mejor estancia para disfrutar la playa"
+        "description":"Es una playa con la mejor arena del mundo, no vas a querer salir de la arena"
     },
     {
         "id": 4,
@@ -37,7 +37,7 @@
         "phone":22360077,
         "email":"hotelesDaniel@gmial.com",
         "website":"https://DanielInc.com",
-        "description":"Ven a disfrutar del mejor hotel en la capital"
+        "description":"Los hoteles siempre son convencionales y aburridos, pero el nuestro no, te ofrecemos más que un cuarto para estar, tenemos diferentes eventos y conciertos en vivo a demás de hologramas en tu cuarto que harán de tu experiencia más completa"
     },
     {
         "id": 5,
@@ -47,7 +47,7 @@
         "phone":78400961,
         "email":"mancha@gmail.com",
         "website":"https://ManchaBar.com",
-        "description":"Cócteles de todos los sabores y colores"
+        "description":"Un gran ambiente, deliciosa comida, las mejores bebidas, y una hermosa vista ¿tengo que seguir?"
     },
     {
         "id": 6,
@@ -61,12 +61,42 @@
     },
     {
         "id": 7,
-        "businessName": "Gasolinera",
-        "address": "local-gas-station",
-        "category": "MaterialIcons",
-        "phone":"",
-        "email":"",
-        "website":"",
-        "description":""
-    }    
+        "businessName": "Gasolinera Maravillas",
+        "address": "A la par del árbol",
+        "category": "Gasolinera",
+        "phone":"23259634",
+        "email":"maravillas@gasolinera.com",
+        "website":"gasolineras-maravillas.com",
+        "description":"Una gasolinera sin igual, que hace maravillas por tu auto, ven y compruebalo, no te arrepentirás"
+    },
+    {
+        "id": 8,
+        "businessName": "Las papas fritas",
+        "address": "Cumbres de Cuscatlán, Antiguo Cuscatlán",
+        "category": "Restaurantes",
+        "phone":"25308120",
+        "email":"laspapasfritas@papas.com",
+        "website":"laspapasfritas.com",
+        "description":"No servimos unas papas cualquiera, servimos LAS PAPAS FRITAS, un deleite sin igual que te dejara impactado, un sabor que nunca has probado, ven y compruebalo"
+    },
+    {
+        "id": 9,
+        "businessName": "Veggie",
+        "address": "Santa Tecla",
+        "category": "Restaurantes",
+        "phone":"26968475",
+        "email":"veggie@veggie.com",
+        "website":"veggie.com",
+        "description":"¿Quieres comer saludable pero sin llorar? Ven a nuestro restaurante y tu paladar no volverá a ser el mismo"
+    },
+    {
+        "id": 10,
+        "businessName": "Honey Night",
+        "address": "San Benito",
+        "category": "Bar",
+        "phone":28275695,
+        "email":"honey@night.com",
+        "website":"honeynight.com",
+        "description":"Haremos que tu y tus amigos pasen una noche en la que tus mejores sueños y la realidad serán uno solo, no vas a querer despertar, ven y descubrelo"
+    },
 ]

@@ -2,19 +2,21 @@ import React from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import {Card, ListItem, Button, Icon} from 'react-native-elements';
 
+import Images from '../data/fetch-images';
 import Colors from '../res/colors';
 
-export default function BusinessCard({
-  name,
-  image,
-  description,
-  category,
-  phone,
-}) {
-  console.log(name, 'NAME');
+import pub from '../assets/images/pub.jpg';
+
+export default function BusinessCard({id, name, description, category, phone}) {
+  console.log(id, 'BOB');
+
+  const img = Images.filter(imagen => imagen.businessID === id)[0]
+    ? Images.filter(imagen => imagen.businessID === id)[0].img
+    : '';
+
   return (
     <Card style={styles.card}>
-      <Card.Image style={styles.img} source={image} />
+      <Card.Image style={styles.img} source={img} />
       <Card.Title style={styles.title}>{name}</Card.Title>
       <Text style={styles.categoryTxt}>{category}</Text>
       <Text style={styles.text}>{`${description.substring(0, 88)}...`}</Text>

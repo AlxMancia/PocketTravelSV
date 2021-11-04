@@ -8,6 +8,8 @@ import businessProfiles from '../../data/business-profiles.json';
 export default function BusinessResultsScreen({route, searchKeyword}) {
   const category = route?.params.category;
 
+  console.log(businessProfiles[0].id, 'AIUDA');
+
   if (
     category &&
     businessProfiles.filter(business => business.category === category)
@@ -31,8 +33,9 @@ export default function BusinessResultsScreen({route, searchKeyword}) {
         )}
         renderItem={({item}) => (
           <BusinessCard
+            key={item.id}
+            id={item.id}
             name={item.businessName}
-            image={item.image}
             phone={item.phone}
             description={item.description}
             category={item.category}
@@ -50,6 +53,8 @@ export default function BusinessResultsScreen({route, searchKeyword}) {
       )}
       renderItem={({item}) => (
         <BusinessCard
+          key={item.id}
+          id={item.id}
           name={item.businessName}
           image={item.image}
           phone={item.phone}
