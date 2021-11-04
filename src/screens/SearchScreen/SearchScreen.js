@@ -5,12 +5,15 @@ import SearchBar from '../../components/SearchBar';
 import LocationBar from '../../components/LocationBar';
 
 import CategoryList from '../../components/CategoryList';
+import BusinessResultsScreen from '../BusinessResultsScreen/BusinessResultsScreen';
 
 export default function SearchScreen({navigation}) {
-  const [value, setValue] = useState();
+  const [value, setValue] = useState('');
+
   const updateSearch = val => {
     //do your search logic or anything
-    console.log(val, 'valor buscado');
+    console.log(val, 'VAL');
+    setValue(val);
   };
 
   return (
@@ -22,7 +25,11 @@ export default function SearchScreen({navigation}) {
         style={styles.searchBar}
       />
       <LocationBar />
-      <CategoryList navigation={navigation} />
+      {value.length === 0 ? (
+        <CategoryList navigation={navigation} />
+      ) : (
+        <BusinessResultsScreen searchKeyword={value} />
+      )}
     </>
   );
 }
