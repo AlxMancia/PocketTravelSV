@@ -1,0 +1,72 @@
+[
+    {
+        "id": 1,
+        "businessName": "Alexis Company",
+        "address": "Santa Tecla San Antonio 9",
+        "category": "Discoteca",
+        "phone":78943123,
+        "email":"alexis@gmail.com",
+        "website":"https://alexisCompany.com",
+        "description":"Discoteca petFriendly"
+    },
+    {
+        "id": 2,
+        "businessName": "Pertuz to Go",
+        "address": "La libertad",
+        "category": "A domicilio",
+        "phone":73210089,
+        "email":"apertuz@gmail.com",
+        "website":"https://PertuztoGo.com",
+        "description":"Los mejores pedidos en to Go"
+    },
+    {
+        "id": 3,
+        "businessName": "Jorge Beach",
+        "address": "Costa Azul local 5, Sonsonate",
+        "category": "playas",
+        "phone":22007893,
+        "email":"beachJ@gmail.com",
+        "website":"https://beachJorgeSonso.com",
+        "description":"La mejor estancia para disfrutar la playa"
+    },
+    {
+        "id": 4,
+        "businessName": "Daniel Inc",
+        "address": "Escalón #4532, San Salvador",
+        "category": "Hoteles",
+        "phone":22360077,
+        "email":"hotelesDaniel@gmial.com",
+        "website":"https://DanielInc.com",
+        "description":"Ven a disfrutar del mejor hotel en la capital"
+    },
+    {
+        "id": 5,
+        "businessName": "Mancha",
+        "address": "Calle al puerto, #345 La Libertad",
+        "category": "Bar",
+        "phone":78400961,
+        "email":"mancha@gmail.com",
+        "website":"https://ManchaBar.com",
+        "description":"Cócteles de todos los sabores y colores"
+    },
+    {
+        "id": 6,
+        "businessName": "Jorge Gas",
+        "address": "Cima 3, #23 San Salvador",
+        "category": "Gasolinera",
+        "phone":22001377,
+        "email":"gasjorge@gmail.com",
+        "website":"https://gsjorge.com",
+        "description":"Buenos precios en gas del estado"
+    },
+    {
+        "id": 7,
+        "businessName": "Gasolinera",
+        "address": "local-gas-station",
+        "category": "MaterialIcons",
+        "phone":"",
+        "email":"",
+        "website":"",
+        "description":""
+    }    
+]
