@@ -13,7 +13,7 @@ const CategoryItem = ({item, navigation}) => {
     if (id === 0) navigation.navigate('Categories');
     else
       navigation.navigate('Results', {
-        categoryID: id,
+        category: name,
       });
   };
 

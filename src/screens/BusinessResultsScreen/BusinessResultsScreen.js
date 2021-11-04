@@ -2,12 +2,15 @@ import React from 'react';
 import {FlatList, View, Text, StyleSheet} from 'react-native';
 
 import BusinessCard from '../../components/BusinessCard';
+
+import businessProfiles from '../../data/business-profiles.json';
+
 import FoodImg1 from '../../assets/images/food1.jpg';
 import FoodImg2 from '../../assets/images/food2.jpg';
 import PubImg from '../../assets/images/pub.jpg';
 
 export default function BusinessResultsScreen({route}) {
-  const {categoryID} = route.params;
+  const {category} = route.params;
   const businessList = [
     {
       businessName: 'La papa frita',
@@ -35,7 +38,7 @@ export default function BusinessResultsScreen({route}) {
   ];
 
   if (
-    businessList.filter(business => business.categoryID === categoryID)
+    businessProfiles.filter(business => business.category === category)
       .length === 0
   ) {
     return (
@@ -50,8 +53,8 @@ export default function BusinessResultsScreen({route}) {
   return (
     <FlatList
       style={styles.categoryList}
-      data={businessList.filter(
-        bussiness => bussiness.categoryID === categoryID,
+      data={businessProfiles.filter(
+        bussiness => bussiness.category === category,
       )}
       renderItem={({item}) => (
         <BusinessCard
