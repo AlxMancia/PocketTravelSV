@@ -35,6 +35,7 @@ export default function BusinessResultsScreen({route, searchKeyword}) {
             image={item.image}
             phone={item.phone}
             description={item.description}
+            category={item.category}
           />
         )}
       />
@@ -53,6 +54,7 @@ export default function BusinessResultsScreen({route, searchKeyword}) {
           image={item.image}
           phone={item.phone}
           description={item.description}
+          category={item.category}
         />
       )}
     />
