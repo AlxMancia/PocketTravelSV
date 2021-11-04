@@ -15,7 +15,11 @@ const RecomendationStack = () => {
         },
         headerTintColor: Colors.white,
       }}>
-      <Stack.Screen name="Recomendation" component={RecomendationScreen} />
+      <Stack.Screen
+        name="Recomendation"
+        component={RecomendationScreen}
+        options={{title: 'Recomendaciones'}}
+      />
     </Stack.Navigator>
   );
 };

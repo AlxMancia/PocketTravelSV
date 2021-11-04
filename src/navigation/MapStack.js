@@ -2,14 +2,14 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 
 import Colors from '../res/colors';
-import { MapScreens } from '../screens/MapScreen';
+import {MapScreens} from '../screens/MapScreen';
 
 const Stack = createStackNavigator();
 
 const MapStack = () => {
   return (
     <Stack.Navigator
-      initialRouteName='MapScreen'
+      initialRouteName="MapScreen"
       screenOptions={{
         headerStyle: {
           backgroundColor: Colors.primaryRed,
@@ -17,8 +17,11 @@ const MapStack = () => {
         },
         headerTintColor: Colors.white,
       }}>
-      <Stack.Screen name="MapScreen" component={MapScreens} />
-     
+      <Stack.Screen
+        name="MapScreen"
+        component={MapScreens}
+        options={{title: 'Mapa'}}
+      />
     </Stack.Navigator>
   );
 };

@@ -25,16 +25,20 @@ const HomeStack = () => {
         component={HomeScreen}
         options={{headerShown: false}}
       />
-      <Stack.Screen name="Search" component={SearchScreen} />
+      <Stack.Screen
+        name="Search"
+        component={SearchScreen}
+        options={{title: 'Buscar'}}
+      />
       <Stack.Screen
         name="Categories"
         component={CategoriesScreen}
-        screenOptions={{headerShown: true}}
+        options={{headerShown: true, title: 'Categorías'}}
       />
       <Stack.Screen
         name="Results"
         component={BusinessResultsScreen}
-        screenOptions={{headerShown: false}}
+        options={{title: 'Resultados'}}
       />
     </Stack.Navigator>
   );

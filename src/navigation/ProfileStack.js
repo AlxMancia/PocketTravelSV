@@ -16,8 +16,16 @@ const ProfileStack = () => {
         },
         headerTintColor: Colors.white,
       }}>
-      <Stack.Screen name="Profile" component={ProfileScreen} />
-      <Stack.Screen name="BusinessForm" component={BusinessFormScreen} />
+      <Stack.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{title: 'Perfil'}}
+      />
+      <Stack.Screen
+        name="BusinessForm"
+        component={BusinessFormScreen}
+        options={{title: 'Agregar Negocio'}}
+      />
     </Stack.Navigator>
   );
 };
