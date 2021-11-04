@@ -5,7 +5,7 @@ import CategoryItem from './CategoryItem';
 
 import businessCategories from '../data/business-categories.json';
 
-export default function CategoryList({navigation}) {
+export default function CategoryList({navigation, style}) {
   const [categories, setCategories] = useState(businessCategories);
 
   const handlePress = () => {
@@ -15,6 +15,7 @@ export default function CategoryList({navigation}) {
   return (
     <FlatList
       data={categories}
+      style={style}
       renderItem={({item}) => (
         <CategoryItem
           item={item}

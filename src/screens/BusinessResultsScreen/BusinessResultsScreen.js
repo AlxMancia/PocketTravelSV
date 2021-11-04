@@ -8,8 +8,6 @@ import businessProfiles from '../../data/business-profiles.json';
 export default function BusinessResultsScreen({route, searchKeyword}) {
   const category = route?.params.category;
 
-  console.log(businessProfiles[0].id, 'AIUDA');
-
   if (
     category &&
     businessProfiles.filter(business => business.category === category)

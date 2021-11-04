@@ -26,7 +26,7 @@ export default function SearchScreen({navigation}) {
       />
       <LocationBar />
       {value.length === 0 ? (
-        <CategoryList navigation={navigation} />
+        <CategoryList navigation={navigation} style={styles.categoryList} />
       ) : (
         <BusinessResultsScreen searchKeyword={value} />
       )}
@@ -38,5 +38,8 @@ const styles = StyleSheet.create({
   searchBar: {
     marginTop: 24,
     marginBottom: -16,
+  },
+  categoryList: {
+    marginTop: -24,
   },
 });

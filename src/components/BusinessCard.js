@@ -8,8 +8,6 @@ import Colors from '../res/colors';
 import pub from '../assets/images/pub.jpg';
 
 export default function BusinessCard({id, name, description, category, phone}) {
-  console.log(id, 'BOB');
-
   const img = Images.filter(imagen => imagen.businessID === id)[0]
     ? Images.filter(imagen => imagen.businessID === id)[0].img
     : '';
