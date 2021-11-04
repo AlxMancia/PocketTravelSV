@@ -4,6 +4,7 @@
         "businessName": "Alexis Company",
         "address": "Santa Tecla San Antonio 9",
         "category": "Discoteca",
+        "img":"cover-image",
         "phone":78943123,
         "email":"alexis@gmail.com",
         "website":"https://alexisCompany.com",
@@ -13,7 +14,13 @@
         "id": 2,
         "businessName": "Pertuz to Go",
         "address": "La libertad",
+<<<<<<< HEAD
         "category": "Restaurantes",
+=======
+        "category": "A domicilio",
+        "img":"cover-image",
+
+>>>>>>> 7af96af8dfd889dd0d12bbec3638d59125aea5bc
         "phone":73210089,
         "email":"apertuz@gmail.com",
         "website":"https://PertuztoGo.com",
@@ -24,6 +31,8 @@
         "businessName": "Jorge Beach",
         "address": "Costa Azul local 5, Sonsonate",
         "category": "Playas",
+        "img":"cover-image",
+
         "phone":22007893,
         "email":"beachJ@gmail.com",
         "website":"https://beachJorgeSonso.com",
@@ -34,6 +43,7 @@
         "businessName": "Daniel Inc",
         "address": "Escalón #4532, San Salvador",
         "category": "Hoteles",
+        "img":"cover-image",
         "phone":22360077,
         "email":"hotelesDaniel@gmial.com",
         "website":"https://DanielInc.com",
@@ -44,6 +54,8 @@
         "businessName": "Mancha",
         "address": "Calle al puerto, #345 La Libertad",
         "category": "Bar",
+        "img":"cover-image",
+
         "phone":78400961,
         "email":"mancha@gmail.com",
         "website":"https://ManchaBar.com",
@@ -54,6 +66,8 @@
         "businessName": "Jorge Gas",
         "address": "Cima 3, #23 San Salvador",
         "category": "Gasolinera",
+        "img":"cover-image",
+
         "phone":22001377,
         "email":"gasjorge@gmail.com",
         "website":"https://gsjorge.com",
@@ -61,6 +75,7 @@
     },
     {
         "id": 7,
+<<<<<<< HEAD
         "businessName": "Gasolinera Maravillas",
         "address": "A la par del árbol",
         "category": "Gasolinera",
@@ -99,4 +114,16 @@
         "website":"honeynight.com",
         "description":"Haremos que tu y tus amigos pasen una noche en la que tus mejores sueños y la realidad serán uno solo, no vas a querer despertar, ven y descubrelo"
     },
+=======
+        "businessName": "Gasolinera",
+        "address": "local-gas-station",
+        "category": "MaterialIcons",
+        "img":"cover-image",
+
+        "phone":"",
+        "email":"",
+        "website":"",
+        "description":""
+    }    
+>>>>>>> 7af96af8dfd889dd0d12bbec3638d59125aea5bc
 ]

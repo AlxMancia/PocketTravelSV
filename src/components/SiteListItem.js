@@ -2,26 +2,21 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity,ImageBackground , Image} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 
-const SiteItemList = (props) =>{
-    const image = { uri: "https://reactjs.org/logo-og.png" };
-    const urlImage = props.text
-    
-    require('../assets/images/sitio1.jpeg')
-    
+const SiteItemList = ({item,navigation}) =>{
+   
+    const { businessName,img} = item;
+    const imgSource = "../assets/images/"+img+".jpg"
+    console.log("../assets/images/"+img+".jpg")
     return (
             <View style={styles.item}>
                 <ImageBackground 
-                    source={
-                        (props.text == 'sitio1') ? require('../assets/images/sitio1.jpeg') : 
-                        (props.text == 'sitio2') ? require('../assets/images/sitio2.jpeg') : 
-                        (props.text == 'sitio3') ? require('../assets/images/sitio3.jpeg') : require('../assets/images/young-traveler.jpg')
-                    } 
+                    // source={require(imgSource)}
                     style={styles.image} 
                 >
-                    <Text style={styles.itemText}>{props.text}</Text>
-                    <View style={styles.rating}>
+                    <Text style={styles.itemText}>{businessName}</Text>
+                    {/* <View style={styles.rating}>
                         <Text style={styles.ratingText}>4/5</Text>
-                    </View>
+                    </View> */}
                 </ImageBackground>
             </View>
         
@@ -30,6 +25,7 @@ const SiteItemList = (props) =>{
 
 const styles = StyleSheet.create({
     item:{
+        flex:1,
         backgroundColor: '#FFF',
         paddingHorizontal:15,
         borderRadius: 10,

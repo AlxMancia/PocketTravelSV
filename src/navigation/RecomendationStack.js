@@ -2,6 +2,7 @@ import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import RecomendationScreen from '../screens/RecomendationScreen';
 import Colors from '../res/colors';
+import { DetailsScreen } from '../screens/DetailsScreen';
 
 const Stack = createStackNavigator();
 
@@ -19,6 +20,11 @@ const RecomendationStack = () => {
         name="Recomendation"
         component={RecomendationScreen}
         options={{title: 'Recomendaciones'}}
+      />
+      <Stack.Screen
+        name="Details"
+        component={DetailsScreen}
+        options={{title: 'Detalles'}}
       />
     </Stack.Navigator>
   );
