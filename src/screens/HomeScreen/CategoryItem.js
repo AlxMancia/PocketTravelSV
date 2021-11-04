@@ -11,6 +11,10 @@ const CategoryItem = ({item, navigation}) => {
 
   const handlePress = () => {
     if (id === 0) navigation.navigate('Categories');
+    else
+      navigation.navigate('Results', {
+        categoryID: id,
+      });
   };
 
   return (

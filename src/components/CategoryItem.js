@@ -7,11 +7,17 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 
 import Colors from '../res/colors';
 
-const CategoryItem = ({item}) => {
-  const {name, categoryIcon, library} = item;
+const CategoryItem = ({item, navigation}) => {
+  const {id, name, categoryIcon, library} = item;
+
+  const handlePress = () => {
+    navigation.navigate('Results', {
+      categoryID: id,
+    });
+  };
 
   return (
-    <TouchableOpacity style={styles.categoryItem}>
+    <TouchableOpacity style={styles.categoryItem} onPress={handlePress}>
       <Icon
         name={categoryIcon}
         type={library}

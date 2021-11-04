@@ -13,21 +13,15 @@ export default function CategoryList({navigation}) {
   };
 
   return (
-    <>
-      <FlatList
-        style={styles.categoriesList}
-        data={categories}
-        renderItem={({item}) => (
-          <CategoryItem item={item} onPress={handlePress} />
-        )}
-      />
-    </>
+    <FlatList
+      data={categories}
+      renderItem={({item}) => (
+        <CategoryItem
+          item={item}
+          onPress={handlePress}
+          navigation={navigation}
+        />
+      )}
+    />
   );
 }
-
-const styles = StyleSheet.create({
-  searchBar: {
-    marginTop: 24,
-    marginBottom: -16,
-  },
-});

@@ -6,6 +6,7 @@ import HomeScreen from '../screens/HomeScreen/HomeScreen';
 import SearchScreen from '../screens/SearchScreen/SearchScreen';
 import CategoriesScreen from '../screens/CategoriesScreen/CategoriesScreen';
 import Colors from '../res/colors';
+import BusinessResultsScreen from '../screens/BusinessResultsScreen/BusinessResultsScreen';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +30,11 @@ const HomeStack = () => {
         name="Categories"
         component={CategoriesScreen}
         screenOptions={{headerShown: true}}
+      />
+      <Stack.Screen
+        name="Results"
+        component={BusinessResultsScreen}
+        screenOptions={{headerShown: false}}
       />
     </Stack.Navigator>
   );
