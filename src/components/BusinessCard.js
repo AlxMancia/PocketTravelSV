@@ -7,19 +7,60 @@ import Colors from '../res/colors';
 
 import pub from '../assets/images/pub.jpg';
 
-export default function BusinessCard({id, name, description, category, phone}) {
+import {Popup} from '../screens/Popup'
+
+
+export default function BusinessCard({id, name, description, category, phone,address}) {
+  const popuplist = [
+    { 
+    id: 1,
+    name: "Categoria: "+category
+    },
+    { 
+    id: 2,
+    name: 'Direccion: '+address
+    },
+    { 
+    id: 3,
+    name: 'Teléfono: '+phone
+    },
+    // {id: 4,
+    // name: 'Email: '+email
+    // },
+    {id: 5,
+    name: 'Description: '+description
+    }
+]
+
+let popupRef= React.createRef()
+
+const onShowPopup = () => {
+    popupRef.show()
+}
+
+const onClosePopup = () => {
+    popupRef.close()
+}
   const img = Images.filter(imagen => imagen.businessID === id)[0]
     ? Images.filter(imagen => imagen.businessID === id)[0].img
     : '';
 
   return (
-    <Card style={styles.card}>
-      <Card.Image style={styles.img} source={img} />
-      <Card.Title style={styles.title}>{name}</Card.Title>
-      <Text style={styles.categoryTxt}>{category}</Text>
-      <Text style={styles.text}>{`${description.substring(0, 88)}...`}</Text>
-      <Button buttonStyle={styles.button} title="Ver más" />
-    </Card>
+    <>
+      <Card style={styles.card}>
+        <Card.Image style={styles.img} source={img} />
+        <Card.Title style={styles.title}>{name}</Card.Title>
+        <Text style={styles.categoryTxt}>{category}</Text>
+        <Text style={styles.text}>{`${description.substring(0, 88)}...`}</Text>
+        <Button buttonStyle={styles.button} title="Ver más" onPress={onShowPopup} />
+      </Card>
+      <Popup
+        title={name}
+        ref={(target) => popupRef = target}
+        onTouchOutside={onClosePopup}
+        data={popuplist}
+      />
+    </>
   );
 }
 

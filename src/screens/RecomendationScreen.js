@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import BusinessCard from '../components/BusinessCard';
 import SiteItemList from '../components/SiteListItem';
 import businessProfiles from '../data/business-profiles.json'
 
@@ -25,8 +26,20 @@ export default function App({navigation}) {
         // numColumns={3}
         data={business}
         horizontal={false}
+        // renderItem={({item}) => (
+        //   <SiteItemList item={item} navigation={navigation} text={'sitio3'} />
+        // )}
         renderItem={({item}) => (
-          <SiteItemList item={item} navigation={navigation} text={'sitio3'} />
+          <BusinessCard
+            address={item.address}
+            key={item.id}
+            id={item.id}
+            name={item.businessName}
+            image={item.image}
+            phone={item.phone}
+            description={item.description}
+            category={item.category}
+          />
         )}
       />
 
