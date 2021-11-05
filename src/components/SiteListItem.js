@@ -3,17 +3,54 @@ import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity,ImageBackground , Image} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
 import { DetailsScreen  } from '../screens/DetailsScreen';
+import {Popup} from '../screens/Popup'
+
 
 const SiteItemList = ({item,navigation}) =>{
 
+    const { businessName,img,category,address,phone,email,website,description} = item;
+
+
+    const popuplist = [
+        { 
+        id: 1,
+        name: "Categoria: "+category
+        },
+        { 
+        id: 2,
+        name: 'Direccion: '+address
+        },
+        { 
+        id: 3,
+        name: 'Teléfono: '+phone
+        },
+        {id: 4,
+        name: 'Email: '+email
+        },
+        {id: 5,
+        name: 'Description: '+description
+        }
+    ]
+
+    let popupRef= React.createRef()
+
+    const onShowPopup = () => {
+        popupRef.show()
+    }
+
+    const onClosePopup = () => {
+        popupRef.close()
+    }
+
     const navigationn = useNavigation();
    
-    const { businessName,img,category} = item;
     const imgSource = "../assets/images/"+img+".jpg"
     // console.log("../assets/images/"+img+".jpg")
     return (
+        <>
         <TouchableOpacity
-            onPress={()=>navigationn.navigate("DetailsScreen")}
+            onPress={onShowPopup}
+        // onPress={()=>navigationn.navigate("DetailsScreen",item)}
         >
             <View style={styles.item}>
                 <ImageBackground 
@@ -27,7 +64,16 @@ const SiteItemList = ({item,navigation}) =>{
                 </ImageBackground>
             </View>
         </TouchableOpacity>
-            
+        <ScrollView>
+            <Popup
+                title={businessName}
+                ref={(target) => popupRef = target}
+                onTouchOutside={onClosePopup}
+                data={popuplist}
+            />
+        </ScrollView>
+        
+        </>    
         
     )
 };
@@ -73,6 +119,14 @@ const styles = StyleSheet.create({
     },
     ratingText:{
         color:"#fff",
+    },
+    container:{
+        flex: 1,
+        alignItems: "center",
+        justifyContent: "center"
+      },
+    txtSize: {
+      fontSize: 20
     }
 });
 
