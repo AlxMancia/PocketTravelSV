@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { FlatList, ScrollView } from 'react-native-gesture-handler';
+import { StyleSheet, Text, View,FlatList} from 'react-native';
+import {  } from 'react-native-gesture-handler';
 import BusinessCard from '../components/BusinessCard';
 import SiteItemList from '../components/SiteListItem';
 import businessProfiles from '../data/business-profiles.json'

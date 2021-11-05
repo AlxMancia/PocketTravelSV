@@ -10,7 +10,7 @@ import pub from '../assets/images/pub.jpg';
 import {Popup} from '../screens/Popup'
 
 
-export default function BusinessCard({id, name, description, category, phone,address}) {
+export default function BusinessCard({id, name, description, category, phone, address}) {
   const popuplist = [
     { 
     id: 1,

@@ -79,8 +79,8 @@ export const Map = () => {
         onTouchStart={() => (following.current = false)}>
         <Marker
           coordinate={{
-            latitude: 13.684757,
-            longitude: -89.301191,
+            latitude: 13.686959,
+            longitude: -89.101190,
           }}
           title="Marcador"
           description="Prueba de marcador"
