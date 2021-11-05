@@ -22,7 +22,7 @@ export default function App({navigation}) {
       
     // </ScrollView>
     <FlatList
-        numColumns={3}
+        // numColumns={3}
         data={business}
         horizontal={false}
         renderItem={({item}) => (

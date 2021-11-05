@@ -22,7 +22,7 @@ const RecomendationStack = () => {
         options={{title: 'Recomendaciones'}}
       />
       <Stack.Screen
-        name="Details"
+        name="DetailsScreen"
         component={DetailsScreen}
         options={{title: 'Detalles'}}
       />

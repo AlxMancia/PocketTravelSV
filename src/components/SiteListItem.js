@@ -1,24 +1,33 @@
+import { useNavigation } from "@react-navigation/core";
 import React from "react";
 import { View, Text, StyleSheet, TouchableOpacity,ImageBackground , Image} from "react-native";
 import { ScrollView } from "react-native-gesture-handler";
+import { DetailsScreen  } from '../screens/DetailsScreen';
 
 const SiteItemList = ({item,navigation}) =>{
+
+    const navigationn = useNavigation();
    
-    const { businessName,img} = item;
+    const { businessName,img,category} = item;
     const imgSource = "../assets/images/"+img+".jpg"
-    console.log("../assets/images/"+img+".jpg")
+    // console.log("../assets/images/"+img+".jpg")
     return (
+        <TouchableOpacity
+            onPress={()=>navigationn.navigate("DetailsScreen")}
+        >
             <View style={styles.item}>
                 <ImageBackground 
-                    // source={require(imgSource)}
+                    source={require("../assets/images/veggie.jpg")}
                     style={styles.image} 
                 >
                     <Text style={styles.itemText}>{businessName}</Text>
-                    {/* <View style={styles.rating}>
-                        <Text style={styles.ratingText}>4/5</Text>
-                    </View> */}
+                    <View style={styles.rating}>
+                        <Text style={styles.ratingText}>{category}</Text>
+                    </View>
                 </ImageBackground>
             </View>
+        </TouchableOpacity>
+            
         
     )
 };
@@ -55,7 +64,7 @@ const styles = StyleSheet.create({
         color:"#fff",
         alignContent:"center",
         alignItems:"center",
-        width:"15%",
+        width:"35%",
         height:24,
         borderColor: '#eeda',
         borderWidth:2,
