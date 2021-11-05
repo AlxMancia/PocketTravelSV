@@ -6,6 +6,8 @@ import ErrorMessage from '../../components/ErrorMessage';
 import Colors from '../../res/colors';
 import {ScrollView} from 'react-native-gesture-handler';
 
+import businessList from '../../data/business-profiles.json';
+
 export default () => {
   const {
     register,
@@ -17,22 +19,27 @@ export default () => {
   } = useForm({
     defaultValues: {
       businessName: '',
-      Address: '',
-      Category: '',
-      Phone: '',
-      Email: '',
-      Website: '',
+      address: '',
+      category: '',
+      phone: '',
+      email: '',
+      website: '',
+      description: '',
     },
   });
   const onSubmit = data => {
+    console.log(businessList.slice(-1).id, 'ID');
+    data.id = businessList.slice(-1).id + 1;
     console.log(data);
+    businessList.push(data);
+    reset();
   };
 
-  const onChange = arg => {
+  /* const onChange = arg => {
     return {
       value: arg.nativeEvent.text,
     };
-  };
+  }; */
 
   console.log('errors', errors);
 
@@ -46,7 +53,7 @@ export default () => {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
@@ -64,7 +71,7 @@ export default () => {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
@@ -80,7 +87,7 @@ export default () => {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
@@ -96,7 +103,7 @@ export default () => {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
@@ -118,7 +125,7 @@ export default () => {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
@@ -141,7 +148,7 @@ export default () => {
           <TextInput
             style={styles.input}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
@@ -166,7 +173,7 @@ export default () => {
             numberOfLines={5}
             style={styles.inputArea}
             onBlur={onBlur}
-            onChangeText={value => onChange(value)}
+            onChangeText={onChange}
             value={value}
           />
         )}
