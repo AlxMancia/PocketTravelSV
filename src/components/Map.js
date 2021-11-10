@@ -77,7 +77,7 @@ export const Map = ({_latitude,_longitude,_name,_address = " "}) => {
 
   return (
     <>
-      <Button
+     {/*  <Button
         title="Prueba Location"
         onPress={() =>
           Geolocation.getCurrentPosition(
@@ -86,7 +86,7 @@ export const Map = ({_latitude,_longitude,_name,_address = " "}) => {
             {timeout: 100000, enableHighAccuracy: true},
           )
         }
-      />
+      /> */}
       <MapView
         ref={el => (mapViewRef.current = el)}
         style={{flex: 1}}
@@ -109,8 +109,8 @@ export const Map = ({_latitude,_longitude,_name,_address = " "}) => {
                             longitude: _longitude,
                           }}
                           apikey={'AIzaSyDRv1WE_WRGcptxSyPD8o9wPNFLai7wLS0'} // insert your API Key here
-                          strokeWidth={4}
-                          strokeColor="#111111"
+                          strokeWidth={5}
+                          strokeColor="#4287f5"
                         />
           }
           {
