@@ -4,31 +4,17 @@ import {  } from 'react-native-gesture-handler';
 import BusinessCard from '../components/BusinessCard';
 import SiteItemList from '../components/SiteListItem';
 import businessProfiles from '../data/business-profiles.json'
+import { MapScreens } from '../screens/MapScreen';
+
 
 export default function App({navigation}) {
 
   const [business, setBusiness] = useState(businessProfiles.slice(0, 9));
 
   return (
-    // <ScrollView style={styles.container}>
-    //   {/* Recomendaciones */}
-    //   <View style ={styles.sitiosWrapper}>
-    //     <View styles={styles.items}>  
-    //       {/* Sitios */}
-    //       <SiteItemList text={'sitio1'} />
-    //       <SiteItemList text={'sitio2'} />
-    //       <SiteItemList text={'sitio3'} />
-    //     </View>
-    //   </View>
-      
-    // </ScrollView>
     <FlatList
-        // numColumns={3}
         data={business}
         horizontal={false}
-        // renderItem={({item}) => (
-        //   <SiteItemList item={item} navigation={navigation} text={'sitio3'} />
-        // )}
         renderItem={({item}) => (
           <BusinessCard
             address={item.address}
@@ -39,6 +25,8 @@ export default function App({navigation}) {
             phone={item.phone}
             description={item.description}
             category={item.category}
+            latitude = {item.latitude}
+            longitude = {item.longitude}
           />
         )}
       />

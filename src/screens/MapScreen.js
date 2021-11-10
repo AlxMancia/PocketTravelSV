@@ -3,31 +3,32 @@ import {View, Text, StyleSheet, Platform} from 'react-native';
 import {Map} from '../components/Map';
 import {PermissionContext} from '../context/PermisionContext';
 
-export const MapScreens = () => {
+export const MapScreens = (props=1) => {
   const {permissions, askLocationPermission} = useContext(PermissionContext);
+  console.log()
+  if(props.route.params != undefined){
+    const name = props.route.params.name
+    const latitude = props.route.params.latitude;
+    const longitude = props.route.params.longitude;
+    const address = props.route.params.address
 
-  // useEffect(() => {
-  //     askLocationPermission();
-  // }, [])
-
-  return (
-    <View style={styles.container}>
-      {/* <Text>Maps</Text>
-            <View style={{backgroundColor:"black"}}>
-                <Button
-                    title="Permiso"
-                    onPress={askLocationPermission}
-                />
-            </View>
-            <Text>{JSON.stringify(permissions,null,5)}</Text> */}
-      <Map />
-    </View>
+    return (
+      <View style={styles.container}>
+        <Map _latitude={latitude} _longitude={longitude} _name={name} _address={address}/>  
+      </View>
+    );
+  }else{
+    return (
+      <View style={styles.container}>
+        <Map/>
+      </View>
   );
+  }
+
+  
 };
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    // justifyContent:'center',
-    // alignItems:'center'
   },
 });

@@ -8,7 +8,7 @@ import Geolocation from '@react-native-community/geolocation';
 import {View} from 'react-native';
 import {Button} from 'react-native-elements';
 
-export const Map = () => {
+export const Map = ({_latitude,_longitude,_name,_address = " "}) => {
   const {
     hasLocation,
     initialPosition,
@@ -98,46 +98,43 @@ export const Map = () => {
           longitudeDelta: 0.0421,
         }}
         onTouchStart={() => (following.current = false)}>
-        <MapViewDirections
-          origin={coordinates[0]}
-          destination={coordinates[1]}
-          apikey={'AIzaSyDRv1WE_WRGcptxSyPD8o9wPNFLai7wLS0'} // insert your API Key here
-          strokeWidth={4}
-          strokeColor="#111111"
-        />
-       <Marker
-          coordinate={{
-            latitude: 13.684757,
-            longitude: -89.2900386,
-          }}
-          draggable={true}
-          onDragStart={e => {
-            console.log('onDrag', e.nativeEvent.coordinate);
-          }}
-          onDragEnd={e => {
-            setEndLat2(e.nativeEvent.coordinate.latitude);
-            setEndLong2(e.nativeEvent.coordinate.longitude);
-          }}
-          title="Marcador"
-          description="Prueba de marcador"
-        />
+          {
+            _latitude && <MapViewDirections
+                          origin={
+                            {latitude: initialPosition.latitude,
+                            longitude: initialPosition.longitude,}
+                          }
+                          destination={{
+                            latitude: _latitude,
+                            longitude: _longitude,
+                          }}
+                          apikey={'AIzaSyDRv1WE_WRGcptxSyPD8o9wPNFLai7wLS0'} // insert your API Key here
+                          strokeWidth={4}
+                          strokeColor="#111111"
+                        />
+          }
+          {
+            _name && <Marker
+                      coordinate={{
+                        latitude: _latitude,
+                        longitude: _longitude,
+                      }}
+                      draggable={true}
+                      onDragStart={e => {
+                        console.log('onDrag', e.nativeEvent.coordinate);
+                      }}
+                      onDragEnd={e => {
+                        setEndLat(e.nativeEvent.coordinate.latitude);
+                        setEndLong(e.nativeEvent.coordinate.longitude);
+                      }}
+                      title={_name}
+                      description={_address}
+                    />
+          }
+        
+      
 
-        <Marker
-          coordinate={{
-            latitude: 13.684757,
-            longitude: -89.301191,
-          }}
-          draggable={true}
-          onDragStart={e => {
-            console.log('onDrag', e.nativeEvent.coordinate);
-          }}
-          onDragEnd={e => {
-            setEndLat(e.nativeEvent.coordinate.latitude);
-            setEndLong(e.nativeEvent.coordinate.longitude);
-          }}
-          title="Marcador"
-          description="Prueba de marcador"
-        />
+
       </MapView>
       <FabResetButton onPress={centerPosition} />
     </>

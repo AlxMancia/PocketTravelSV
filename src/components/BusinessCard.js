@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, StyleSheet} from 'react-native';
+import {View, Text, Image, StyleSheet, TouchableOpacity} from 'react-native';
 import {Card, ListItem, Button, Icon} from 'react-native-elements';
 
 import Images from '../data/fetch-images';
@@ -8,9 +8,15 @@ import Colors from '../res/colors';
 import pub from '../assets/images/pub.jpg';
 
 import {Popup} from '../screens/Popup'
+import { useNavigation } from '@react-navigation/core';
+import { MapScreen  } from '../screens/MapScreen';
 
 
-export default function BusinessCard({id, name, description, category, phone, address}) {
+
+export default function BusinessCard({id, name, description, category, phone, address,latitude,longitude}) {
+  
+  const navigation = useNavigation();
+
   const popuplist = [
     { 
     id: 1,
@@ -52,7 +58,17 @@ const onClosePopup = () => {
         <Card.Title style={styles.title}>{name}</Card.Title>
         <Text style={styles.categoryTxt}>{category}</Text>
         <Text style={styles.text}>{`${description.substring(0, 88)}...`}</Text>
-        <Button buttonStyle={styles.button} title="Ver más" onPress={onShowPopup} />
+        <View style = {styles.btnContainer}>
+          <Button buttonStyle={styles.button} title="Ver más" onPress={onShowPopup} />
+          <TouchableOpacity
+                activeOpacity={0.9}
+                onPress={()=>navigation.navigate("MapScreen",{latitude,longitude,name,address})}
+                style={styles.buttonDir}
+            >
+                <Icon name="arrow-circle-right" type="font-awesome" color="white" />
+          </TouchableOpacity>
+          {/* <Button buttonStyle={styles.buttonDir} title="->" onPress={()=>navigation.navigate("MapScreen",{latitude,longitude,name,address})} /> */}
+        </View>
       </Card>
       <Popup
         title={name}
@@ -87,6 +103,7 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     marginRight: 0,
     marginBottom: 0,
+    width:300,
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,
@@ -99,4 +116,16 @@ const styles = StyleSheet.create({
     padding: 0,
     margin: 0,
   },
+  btnContainer:{
+    justifyContent:'space-between',
+    flexDirection:"row"
+  },
+  buttonDir:{
+    width:45,
+    height:45,
+    borderRadius:100,
+    backgroundColor:"#4287f5",
+    justifyContent:'center',
+    alignSelf:'center'
+  }
 });

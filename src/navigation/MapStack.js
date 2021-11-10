@@ -20,6 +20,7 @@ const MapStack = () => {
       <Stack.Screen
         name="MapScreen"
         component={MapScreens}
+        props={1}
         options={{title: 'Mapa'}}
       />
     </Stack.Navigator>
