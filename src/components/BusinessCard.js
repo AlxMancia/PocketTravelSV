@@ -10,43 +10,44 @@ import pub from '../assets/images/pub.jpg';
 import {Popup} from '../screens/Popup'
 import { useNavigation } from '@react-navigation/core';
 import { MapScreen  } from '../screens/MapScreen';
+import { DetailsScreen } from '../screens/DetailsScreen'
 
 
 
-export default function BusinessCard({id, name, description, category, phone, address,latitude,longitude}) {
+export default function BusinessCard({id, name, description, category, phone, address,latitude,longitude,item}) {
   
   const navigation = useNavigation();
 
-  const popuplist = [
-    { 
-    id: 1,
-    name: "Categoria: "+category
-    },
-    { 
-    id: 2,
-    name: 'Direccion: '+address
-    },
-    { 
-    id: 3,
-    name: 'Teléfono: '+phone
-    },
-    // {id: 4,
-    // name: 'Email: '+email
-    // },
-    {id: 5,
-    name: 'Description: '+description
-    }
-]
+//   const popuplist = [
+//     { 
+//     id: 1,
+//     name: "Categoria: "+category
+//     },
+//     { 
+//     id: 2,
+//     name: 'Direccion: '+address
+//     },
+//     { 
+//     id: 3,
+//     name: 'Teléfono: '+phone
+//     },
+//     // {id: 4,
+//     // name: 'Email: '+email
+//     // },
+//     {id: 5,
+//     name: 'Description: '+description
+//     }
+// ]
 
-let popupRef= React.createRef()
+// let popupRef= React.createRef()
 
-const onShowPopup = () => {
-    popupRef.show()
-}
+// const onShowPopup = () => {
+//     popupRef.show()
+// }
 
-const onClosePopup = () => {
-    popupRef.close()
-}
+// const onClosePopup = () => {
+//     popupRef.close()
+// }
   const img = Images.filter(imagen => imagen.businessID === id)[0]
     ? Images.filter(imagen => imagen.businessID === id)[0].img
     : '';
@@ -59,7 +60,8 @@ const onClosePopup = () => {
         <Text style={styles.categoryTxt}>{category}</Text>
         <Text style={styles.text}>{`${description.substring(0, 88)}...`}</Text>
         <View style = {styles.btnContainer}>
-          <Button buttonStyle={styles.button} title="Ver más" onPress={onShowPopup} />
+          <Button buttonStyle={styles.button} title="Ver más" onPress={()=>navigation.navigate("DetailsScreen",{item,img})} />
+          {/* <Button buttonStyle={styles.button} title="Ver más" onPress={()=>console.log(img)} /> */}
           <TouchableOpacity
                 activeOpacity={0.9}
                 onPress={()=>navigation.navigate("MapScreen",{latitude,longitude,name,address})}
@@ -70,12 +72,12 @@ const onClosePopup = () => {
           {/* <Button buttonStyle={styles.buttonDir} title="->" onPress={()=>navigation.navigate("MapScreen",{latitude,longitude,name,address})} /> */}
         </View>
       </Card>
-      <Popup
+      {/* <Popup
         title={name}
         ref={(target) => popupRef = target}
         onTouchOutside={onClosePopup}
         data={popuplist}
-      />
+      /> */}
     </>
   );
 }

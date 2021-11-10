@@ -17,6 +17,7 @@ export default function App({navigation}) {
         horizontal={false}
         renderItem={({item}) => (
           <BusinessCard
+            item = {item}
             address={item.address}
             key={item.id}
             id={item.id}

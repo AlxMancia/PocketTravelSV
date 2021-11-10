@@ -136,7 +136,7 @@ export const Map = ({_latitude,_longitude,_name,_address = " "}) => {
 
 
       </MapView>
-      <FabResetButton onPress={centerPosition} />
+      {/* <FabResetButton onPress={centerPosition} /> */}
     </>
   );
 };
