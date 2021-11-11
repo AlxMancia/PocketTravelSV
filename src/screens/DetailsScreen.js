@@ -1,5 +1,6 @@
+import { useNavigation } from '@react-navigation/core';
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import {Card, ListItem, Button, Icon, Image} from 'react-native-elements';
 import { ScrollView } from 'react-native-gesture-handler'
 import MapView, { Marker } from 'react-native-maps';
@@ -7,6 +8,8 @@ import { Map } from '../components/Map';
 import Images from '../data/fetch-images';
 
 export const DetailsScreen = (props) => {
+    const navigation = useNavigation();
+
     const {address,businessName,category,description,email,phone,latitude,longitude,website,id} = props.route.params.item;
     
 
@@ -32,25 +35,31 @@ export const DetailsScreen = (props) => {
                 </View>
                 <View style={styles.mapContainer}>
                     <Text style={styles.header}>Ubicacion: </Text>
-                    
+                    <MapView style={{height:200}}
+                            // showsUserLocation={true}
+                            initialRegion={{
+                            latitude: latitude,
+                            longitude: longitude,
+                            latitudeDelta: 0.0122,
+                            longitudeDelta: 0.0121,
+                            }}>
+                        <Marker
+                            coordinate={{
+                                latitude,
+                                longitude,
+                            }}
+                            title={businessName}
+                            description={address}
+                        />
+                    </MapView>
+                    <TouchableOpacity
+                        activeOpacity={0.9}
+                        onPress={()=>navigation.navigate("MapScreen",{latitude,longitude,businessName,address})}
+                        style={styles.buttonDir}
+                    >
+                        <Icon name="arrow-circle-right" type="font-awesome" color="white" />
+                    </TouchableOpacity>
                 </View>
-                <MapView style={{height:200}}
-                        // showsUserLocation={true}
-                        initialRegion={{
-                          latitude: latitude,
-                          longitude: longitude,
-                          latitudeDelta: 0.0122,
-                          longitudeDelta: 0.0121,
-                        }}>
-                    <Marker
-                        coordinate={{
-                            latitude,
-                            longitude,
-                        }}
-                        title={businessName}
-                        description={address}
-                    />
-                </MapView>
         </ScrollView>
         </>
         
@@ -84,6 +93,17 @@ const styles = StyleSheet.create({
    mapContainer:{
     paddingTop:10,
     paddingLeft:15,
-   }
+   },
+   buttonDir:{
+    position:'absolute',
+    bottom:5,
+    right:5,
+    width:45,
+    height:45,
+    borderRadius:100,
+    backgroundColor:"#4287f5",
+    justifyContent:'center',
+    alignSelf:'center'
+  }
 });
   
