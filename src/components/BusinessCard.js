@@ -59,16 +59,16 @@ export default function BusinessCard({id, name, description, category, phone, ad
         <Card.Title style={styles.title}>{name}</Card.Title>
         <Text style={styles.categoryTxt}>{category}</Text>
         <Text style={styles.text}>{`${description.substring(0, 88)}...`}</Text>
+        <Button buttonStyle={styles.button} title="Ver más" onPress={()=>navigation.navigate("DetailsScreen",{item,img})} />
         <View style = {styles.btnContainer}>
-          <Button buttonStyle={styles.button} title="Ver más" onPress={()=>navigation.navigate("DetailsScreen",{item,img})} />
           {/* <Button buttonStyle={styles.button} title="Ver más" onPress={()=>console.log(img)} /> */}
-          <TouchableOpacity
+          {/* <TouchableOpacity
                 activeOpacity={0.9}
                 onPress={()=>navigation.navigate("MapScreen",{latitude,longitude,name,address})}
                 style={styles.buttonDir}
             >
                 <Icon name="arrow-circle-right" type="font-awesome" color="white" />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           {/* <Button buttonStyle={styles.buttonDir} title="->" onPress={()=>navigation.navigate("MapScreen",{latitude,longitude,name,address})} /> */}
         </View>
       </Card>
@@ -105,7 +105,7 @@ const styles = StyleSheet.create({
     marginLeft: 0,
     marginRight: 0,
     marginBottom: 0,
-    width:300,
+    // width:"",
     alignItems: 'center',
     justifyContent: 'center',
     paddingVertical: 12,

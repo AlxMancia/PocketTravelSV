@@ -7,7 +7,7 @@ export const MapScreens = (props=1) => {
   const {permissions, askLocationPermission} = useContext(PermissionContext);
   console.log()
   if(props.route.params != undefined){
-    const name = props.route.params.name
+    const name = props.route.params.businessName
     const latitude = props.route.params.latitude;
     const longitude = props.route.params.longitude;
     const address = props.route.params.address
