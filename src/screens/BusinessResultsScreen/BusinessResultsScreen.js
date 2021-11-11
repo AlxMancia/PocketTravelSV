@@ -4,6 +4,8 @@ import {FlatList, View, Text, StyleSheet} from 'react-native';
 import BusinessCard from '../../components/BusinessCard';
 
 import businessProfiles from '../../data/business-profiles.json';
+import { MapScreens } from '../screens/MapScreen';
+
 
 export default function BusinessResultsScreen({route, searchKeyword}) {
   const category = route?.params.category;
@@ -31,12 +33,17 @@ export default function BusinessResultsScreen({route, searchKeyword}) {
         )}
         renderItem={({item}) => (
           <BusinessCard
-            key={item.id}
-            id={item.id}
-            name={item.businessName}
-            phone={item.phone}
-            description={item.description}
-            category={item.category}
+          item = {item}
+          address={item.address}
+          key={item.id}
+          id={item.id}
+          name={item.businessName}
+          image={item.image}
+          phone={item.phone}
+          description={item.description}
+          category={item.category}
+          latitude = {item.latitude}
+          longitude = {item.longitude}
           />
         )}
       />
@@ -51,6 +58,8 @@ export default function BusinessResultsScreen({route, searchKeyword}) {
       )}
       renderItem={({item}) => (
         <BusinessCard
+          item = {item}
+          address={item.address}
           key={item.id}
           id={item.id}
           name={item.businessName}
@@ -58,7 +67,9 @@ export default function BusinessResultsScreen({route, searchKeyword}) {
           phone={item.phone}
           description={item.description}
           category={item.category}
-        />
+          latitude = {item.latitude}
+          longitude = {item.longitude}
+          />
       )}
     />
   );

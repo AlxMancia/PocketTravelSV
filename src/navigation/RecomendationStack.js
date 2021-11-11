@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import RecomendationScreen from '../screens/RecomendationScreen';
 import Colors from '../res/colors';
 import { DetailsScreen } from '../screens/DetailsScreen';
+import { MapScreens } from '../screens/MapScreen';
 
 const Stack = createStackNavigator();
 
@@ -25,6 +26,11 @@ const RecomendationStack = () => {
         name="DetailsScreen"
         component={DetailsScreen}
         options={{title: 'Detalles'}}
+      />
+      <Stack.Screen
+        name="MapScreen"
+        component={MapScreens}
+        options={{title:"Direcciones"}}
       />
     </Stack.Navigator>
   );

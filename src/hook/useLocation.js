@@ -23,7 +23,7 @@ export const useLocation = () => {
                 longitude : location.longitude
             });
             setHasLocation(true);
-        }),(err)=>console.log({err}), {enableHighAccuracy: true}
+        }),(err)=>console.log({err}), {timeout:10000,enableHighAccuracy: true}
     }, [])
 
     const getCurrentLocation = () =>{
@@ -37,7 +37,7 @@ export const useLocation = () => {
                     });
     
                 },
-                (reject)=>console.log({reject}), {enableHighAccuracy: true}
+                (reject)=>console.log({reject}), {timeout:10000,enableHighAccuracy: true}
             );
         });
     }

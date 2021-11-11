@@ -7,6 +7,10 @@ import SearchScreen from '../screens/SearchScreen/SearchScreen';
 import CategoriesScreen from '../screens/CategoriesScreen/CategoriesScreen';
 import Colors from '../res/colors';
 import BusinessResultsScreen from '../screens/BusinessResultsScreen/BusinessResultsScreen';
+import { MapScreens } from '../screens/MapScreen';
+import { DetailsScreen } from '../screens/DetailsScreen'
+
+
 
 const Stack = createStackNavigator();
 
@@ -39,6 +43,16 @@ const HomeStack = () => {
         name="Results"
         component={BusinessResultsScreen}
         options={{title: 'Resultados'}}
+      />
+      <Stack.Screen
+        name="MapScreen"
+        component={MapScreens}
+        options={{title:"Direcciones"}}
+      />
+      <Stack.Screen
+        name="DetailsScreen"
+        component={DetailsScreen}
+        options={{title: 'Detalles'}}
       />
     </Stack.Navigator>
   );

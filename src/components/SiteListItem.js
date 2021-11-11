@@ -1,7 +1,7 @@
 import { useNavigation } from "@react-navigation/core";
 import React from "react";
-import { View, Text, StyleSheet, TouchableOpacity,ImageBackground , Image} from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { View, Text, StyleSheet, TouchableOpacity,ImageBackground,ScrollView  , Image} from "react-native";
+// import { ScrollView } from "react-native-gesture-handler";
 import { DetailsScreen  } from '../screens/DetailsScreen';
 import {Popup} from '../screens/Popup'
 
