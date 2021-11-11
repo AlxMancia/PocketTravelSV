@@ -1,14 +1,16 @@
 import * as React from 'react';
 import {Text, View, StyleSheet, TextInput, Pressable} from 'react-native';
 import {useForm, Controller} from 'react-hook-form';
-import ErrorMessage from '../../components/ErrorMessage';
+import {Picker} from '@react-native-picker/picker';
 
+import ErrorMessage from '../../components/ErrorMessage';
 import Colors from '../../res/colors';
 import {ScrollView} from 'react-native-gesture-handler';
 
 import businessList from '../../data/business-profiles.json';
+import categoryList from '../../data/business-categories.json';
 
-export default () => {
+export default function BusinessFormScreen() {
   const {
     register,
     setValue,
@@ -28,9 +30,9 @@ export default () => {
     },
   });
   const onSubmit = data => {
-    console.log(businessList.slice(-1).id, 'ID');
-    data.id = businessList.slice(-1).id + 1;
-    console.log(data);
+    console.log(businessList.slice(-1)[0].id, 'ID');
+    data.id = businessList.slice(-1)[0].id + 1;
+    console.log(data, 'TIRAME_DATOS');
     businessList.push(data);
     reset();
   };
@@ -84,12 +86,18 @@ export default () => {
       <Controller
         control={control}
         render={({field: {onChange, onBlur, value}}) => (
-          <TextInput
-            style={styles.input}
+          <Picker
             onBlur={onBlur}
-            onChangeText={onChange}
-            value={value}
-          />
+            selectedValue={value}
+            onValueChange={onChange}>
+            {categoryList.map(category => (
+              <Picker.Item
+                key={category.id}
+                label={category.name}
+                value={category.name}
+              />
+            ))}
+          </Picker>
         )}
         name="category"
         rules={{required: 'Este campo es requerido'}}
@@ -187,7 +195,7 @@ export default () => {
       </Pressable>
     </ScrollView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   label: {
